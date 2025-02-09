@@ -4,6 +4,7 @@ Para esta explicacion usaremos
 
 Codigo Python
 
+```python
 import json
 import random
 
@@ -67,6 +68,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
 
 
 EXPLICACION:
@@ -76,21 +78,18 @@ A continuacion pasaremos con la explicacion del codigo en Java.
 
 Codigo Java
 
+```java
 import java.util.Random;
 import java.util.Scanner;
 
-public class TablaJavaVersion 
-
-{
+public class TablaJavaVersion {
 
     private static String[] meses = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", 
                                      "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
     private static String[] departamentos = {"Ropa", "Deportes", "Jugueteria"};
     private static int[][] tabla;
 
-    public static void main(String[] args) 
-    
-    {
+    public static void main(String[] args) {
         tabla = crearTabla();
         Scanner scanner = new Scanner(System.in);
 
@@ -104,9 +103,7 @@ public class TablaJavaVersion
             System.out.print("Seleccione una opción: ");
             String opcion = scanner.nextLine();
 
-            switch (opcion) 
-            
-            {
+            switch (opcion) {
                 case "1":
                     mostrarTabla();
                     break;
@@ -126,38 +123,28 @@ public class TablaJavaVersion
         }
     }
 
-    private static int[][] crearTabla() 
-    
-    {
+    private static int[][] crearTabla() {
         Random random = new Random();
         int[][] tabla = new int[meses.length][departamentos.length];
         for (int i = 0; i < meses.length; i++) {
-            for (int j = 0; j < departamentos.length; j++) 
-            
-            {
+            for (int j = 0; j < departamentos.length; j++) {
                 tabla[i][j] = random.nextInt(4501) + 500; 
             }
         }
         return tabla;
     }
 
-    private static void mostrarTabla() 
-    
-    {
+    private static void mostrarTabla() {
         System.out.println("\nVentas por Mes");
         System.out.printf("%-10s | %-10s | %-10s | %-10s%n", "Mes", "Ropa", "Deportes", "Jugueteria");
         System.out.println("---------------------------------------------");
-        for (int i = 0; i < meses.length; i++) 
-        
-        {
+        for (int i = 0; i < meses.length; i++) {
             System.out.printf("%-10s | %-10d | %-10d | %-10d%n", 
                               meses[i], tabla[i][0], tabla[i][1], tabla[i][2]);
         }
     }
 
-    private static void ubicarVenta(Scanner scanner) 
-    
-    {
+    private static void ubicarVenta(Scanner scanner) {
         System.out.print("Capture el mes que desea ubicar: ");
         String mes = scanner.nextLine();
         System.out.print("Capture el departamento: ");
@@ -165,43 +152,29 @@ public class TablaJavaVersion
 
         int fila = -1, columna = -1;
 
-        for (int i = 0; i < meses.length; i++) 
-        
-        {
-            if (meses[i].equalsIgnoreCase(mes)) 
-            
-            {
+        for (int i = 0; i < meses.length; i++) {
+            if (meses[i].equalsIgnoreCase(mes)) {
                 fila = i;
                 break;
             }
         }
 
-        for (int j = 0; j < departamentos.length; j++) 
-        
-        {
-            if (departamentos[j].equalsIgnoreCase(departamento)) 
-            
-            {
+        for (int j = 0; j < departamentos.length; j++) {
+            if (departamentos[j].equalsIgnoreCase(departamento)) {
                 columna = j;
                 break;
             }
         }
 
-        if (fila != -1 && columna != -1) 
-        
-        {
+        if (fila != -1 && columna != -1) {
             System.out.printf("La venta en %s para el departamento de %s fue de: %d%n", 
                               mes, departamento, tabla[fila][columna]);
-        } else 
-        
-        {
+        } else {
             System.out.println("No se ha encontrado ninguna venta realizada.");
         }
     }
 
-    private static void eliminarVenta(Scanner scanner) 
-    
-    {
+    private static void eliminarVenta(Scanner scanner) {
         System.out.print("Capture el mes que se realizó la venta: ");
         String mes = scanner.nextLine();
         System.out.print("Capture el departamento: ");
@@ -209,31 +182,21 @@ public class TablaJavaVersion
 
         int fila = -1, columna = -1;
 
-        for (int i = 0; i < meses.length; i++) 
-        
-        {
-            if (meses[i].equalsIgnoreCase(mes)) 
-            
-            {
+        for (int i = 0; i < meses.length; i++) {
+            if (meses[i].equalsIgnoreCase(mes)) {
                 fila = i;
                 break;
             }
         }
 
-        for (int j = 0; j < departamentos.length; j++) 
-        
-        {
-            if (departamentos[j].equalsIgnoreCase(departamento)) 
-            
-            {
+        for (int j = 0; j < departamentos.length; j++) {
+            if (departamentos[j].equalsIgnoreCase(departamento)) {
                 columna = j;
                 break;
             }
         }
 
-        if (fila != -1 && columna != -1) 
-        
-        {
+        if (fila != -1 && columna != -1) {
             tabla[fila][columna] = 0;
             System.out.println("La venta ha sido eliminada.");
         } else {
@@ -241,6 +204,8 @@ public class TablaJavaVersion
         }
     }
 }
+```
+
 
 EXPLICACION:
 En este codigo para su realización nuevamente se implementaron cuatro métodos, el primero es crearTabla, que genera la tabla con valores aleatorios usando la clase Random, para el segundo método este imprime la tabla, mostrando los valores de ventas, en el tercero permite buscar una venta específica solicitando el mes y departamento, mostrando el valor correspondiente, para el cuarto método, elimina una venta estableciendo su valor en 0, también solicitando el mes y departamento y para finalizar, en el método main se crea un menú interactivo con un ciclo while para que el usuario elija entre mostrar la tabla, ubicar o eliminar una venta, o salir del programa. 
